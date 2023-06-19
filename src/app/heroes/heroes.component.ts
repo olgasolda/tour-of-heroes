@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Hero} from "../hero";
+import { Component, OnInit } from '@angular/core';
+import { Hero } from "../hero";
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -7,10 +7,10 @@ import { HeroService } from '../hero.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit{
+export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -23,7 +23,7 @@ export class HeroesComponent implements OnInit{
 
   add(name: string): void {
     name = name.trim();
-    if (!name) { return;}
+    if (!name) { return; }
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);

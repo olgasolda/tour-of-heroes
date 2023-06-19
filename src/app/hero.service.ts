@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { MessageService } from './message.service';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class HeroService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor( private http: HttpClient, private messageService: MessageService) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
